@@ -1,1 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @import "tailwindcss";
+
+@theme{
+    --color-primary:#ff4f00;
+    --color-primary-hover:#fff7ec;
+    --color-black-1:#151515;
+    --color-black-2:#101010;
+
+    --color-gray-1:#666666;
+    --color-gray-2:#b8b8b8;
+    --color-gray-3:#aaaaaa;
+    --color-white-1:#FDFDFC;
+}
+
+*,button,a,input,textarea ,select{
+    font-family: 'Inter', sans-serif;
+  
+    
+}
+
+
