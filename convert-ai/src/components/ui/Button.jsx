@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const Button = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   
-  // Define variant styles
+  
   const variantStyles = {
     light: "border-gray-2/20 border text-black-2 bg-white",
     primary: "border-primary border text-white bg-primary outline-1 outline-primary outline-offset-[1.5px]",
@@ -22,10 +22,31 @@ const Button = ({
     accent: "border-accent border text-white bg-accent outline-1 outline-accent outline-offset-[1.5px]",
   };
   
-  // Define shadow styles if enabled
-  const shadowStyle = shadow 
-    ? "shadow-[rgba(254,81,1,0)_0px_0px_0px_0px,rgba(254,81,1,0)_0px_0px_0px_0px,rgba(254,81,1,0)_0px_0px_0px_0px] hover:shadow-[rgba(254,81,1,0.1)_0px_4px_6px,rgba(254,81,1,0.05)_0px_10px_15px,rgba(254,81,1,0.1)_0px_15px_25px]"
-    : "";
+ const OUTER_SHADOW = `
+  rgba(0, 0, 0, 0.13) 0.301094px 0.602187px 0.673266px -0.833333px,
+  rgba(0, 0, 0, 0.13) 1.14427px 2.28853px 2.55866px -1.66667px,
+  rgba(0, 0, 0, 0.13) 5px 10px 11.1803px -2.5px
+`;
+
+const INSET_SHADOW = `
+  rgba(0, 0, 0, 0.16) 0px -0.361312px 0.939412px -1.08333px inset,
+  rgba(0, 0, 0, 0.15) 0px -1.37312px 3.57011px -2.16667px inset,
+  rgba(0, 0, 0, 0.09) 0px -6px 15.6px -3.25px inset
+`;
+
+const hasInset = variant === "primary" || variant === "secondary";
+
+let boxShadowValue = "none";
+
+if (shadow && hasInset) {
+  boxShadowValue = `${OUTER_SHADOW}, ${INSET_SHADOW}`;
+} else if (shadow) {
+  boxShadowValue = OUTER_SHADOW;
+} else if (hasInset) {
+  boxShadowValue = INSET_SHADOW;
+}
+
+
   
    const getTextHeight = () => {
     
@@ -38,11 +59,12 @@ const Button = ({
   return (
     <Link 
       to={to}
+       style={{ boxShadow: boxShadowValue }}
       className={`
-        px-5 py-1.5 text-center rounded-lg text-[16px] lg:text-[18px] font-medium 
+        px-5 py-1.5 text-center rounded-md text-[16px] lg:text-[18px] font-medium 
         overflow-hidden transition-all duration-200
         ${variantStyles[variant]}
-        ${shadowStyle}
+        
         ${fullWidth ? 'w-full' : 'w-auto inline-block'}
         ${className}
       `}

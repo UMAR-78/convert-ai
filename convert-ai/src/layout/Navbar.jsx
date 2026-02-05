@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react' // Add useEffect import
+import React, { useState, useEffect } from 'react' 
 import { Link } from 'react-router-dom'
 import assets from '../assets/assets.js'
-import { motion ,useScroll, useMotionValueEvent} from "framer-motion";
+import { motion ,useScroll, useMotionValueEvent} from "motion/react";
 import { IoChevronDownOutline,IoClipboardOutline } from "react-icons/io5";
 import { FaRegEdit } from "react-icons/fa";
 import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
@@ -162,8 +162,8 @@ const menuItems = [
         </div>
         <div className="flex flex-col gap-2.5 ">
           
-          <Button text='Log in' fullWidth={true} />
-          <Button text='Sign up' variant='primary' fullWidth={true}/>
+          <Button text='Log in' fullWidth={true} to='#' />
+          <Button text='Sign up' variant='primary' fullWidth={true} to='#'/>
         </div>
       </motion.div>
       {/* nav lg */}

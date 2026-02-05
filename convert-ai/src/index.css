@@ -13,11 +13,59 @@
     --color-gray-3:#aaaaaa;
     --color-white-1:#FDFDFC;
 }
+ @font-face {
+                font-family: "InterDisplay";
+                src: url("./assets/fonts/InterDisplay400.woff2");
+                font-display: swap;
+                font-style: normal;
+                font-weight: 400
+            }
+
+            @font-face {
+                font-family: "InterDisplay";
+                src: url("./assets/fonts/InterDisplay500.woff2");
+                font-display: swap;
+                font-style: normal;
+                font-weight: 500
+            }
+            @font-face {
+                font-family: "InterDisplay";
+                src: url("./assets/fonts/InterDisplay700.woff2");
+                font-display: swap;
+                font-style: normal;
+                font-weight: 700
+            }
+
+            @font-face {
+                font-family: "InterDisplay";
+                src: url("./assets/fonts/InterDisplayItalic.woff2");
+                font-display: swap;
+                font-style: italic;
+                font-weight: 400
+            }
+            @font-face {
+                font-family: "InterDisplay";
+                src: url("./assets/fonts/InterDisplayItalicBold.woff2");
+                font-display: swap;
+                font-style: italic;
+                font-weight: 500
+            }
+
 
 *,button,a,input,textarea ,select{
-    font-family: 'Inter', sans-serif;
+    font-family: 'InterDisplay','Inter', sans-serif;
+    letter-spacing: -.05em;
+    line-height: 1.2;
   
     
 }
+.btn-shadow{
+    /* outside */
+    box-shadow: rgba(0, 0, 0, 0.13) 0.301094px 0.602187px 0.673266px -0.833333px, rgba(0, 0, 0, 0.13) 1.14427px 2.28853px 2.55866px -1.66667px, rgba(0, 0, 0, 0.13) 5px 10px 11.1803px -2.5px;
+}
+.btn-shadow-inset{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px -0.361312px 0.939412px -1.08333px inset, rgba(0, 0, 0, 0.15) 0px -1.37312px 3.57011px -2.16667px inset, rgba(0, 0, 0, 0.09) 0px -6px 15.6px -3.25px inset;
+}
+
 
 
